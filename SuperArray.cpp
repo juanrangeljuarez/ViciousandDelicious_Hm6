@@ -19,7 +19,7 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 	arr = new int[capacity];
     SuperArray::capacity = capacity;
 	SuperArray::lowIndex = begIndex;
-	SuperArray::highIndex = (capacity-1);
+	SuperArray::highIndex = begIndex + (capacity-1);
 	// Other info below
 }
 
@@ -65,18 +65,15 @@ string arrayToString(const SuperArray& obj)
  */
 int &SuperArray::operator[](const int index)
 {
-	int realIndex = index;
-	//
-	// Define your logic here
-	//
-    if(index < lowIndex)
-    {
-        throw OptIndexEx();
-    }
-    else if(index > highIndex)
-    {
-        throw OptIndexEx();
-    }
+	int realIndex = index - lowIndex;
+	if(realIndex < lowIndex)
+	{
+		throw("Invalid index request, too low");
+	}
+	else if(realIndex > highIndex)
+	{
+		throw("Invalid index request, too high");
+	}
 	return arr[realIndex];
 }
 
