@@ -18,6 +18,8 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 	 */
 	arr = new int[capacity];
     SuperArray::capacity = capacity;
+	lowIndex = begIndex;
+	highIndex = (capacity-1);
 	// Other info below
 }
 
@@ -68,4 +70,12 @@ int &SuperArray::operator[](const int index)
 	// Define your logic here
 	//
 	return arr[realIndex];
+}
+
+int SuperArray::getLowIndex() const {
+    return lowIndex;
+}
+
+int SuperArray::getHighIndex() const {
+    return highIndex;
 }

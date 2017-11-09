@@ -75,7 +75,7 @@ TEST_CASE("Testing SuperArray class Regular indexes")
         INFO("Test #1) Test Constructor FAILED");
         REQUIRE(arrayToString(sa) == "20 21 22 23 24");
     }
-    /*
+
 	SECTION("Test #2) Test low index")
 	{
 	    INFO("Test #2) Test low index FAILED");
@@ -86,11 +86,11 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	    INFO("Test #3) Test high index FAILED");
 		REQUIRE(sa.getHighIndex() == high - 1);
 	}
-	SECTION("Test #4) Test length")
+	/*SECTION("Test #4) Test length")
 	{
 	    INFO("Test #4) Test length FAILED");
 		REQUIRE(sa.length() == 5);
-	}
+	}/*
 	SECTION("Test #5) Test valid index member")
 	{
 	    INFO("Test #5) Test valid index member FAILED");
