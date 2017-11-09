@@ -66,7 +66,7 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	int low = 0;
 	int high = 5;
 	SuperArray sa(low,high);
-	for (int i = low; i < high - low; i++)
+	for (int i = low; i < (high - low); i++)
 	{
 		sa[i] = i + 20;
 	}
@@ -86,11 +86,11 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	    INFO("Test #3) Test high index FAILED");
 		REQUIRE(sa.getHighIndex() == high - 1);
 	}
-	/*SECTION("Test #4) Test length")
+	SECTION("Test #4) Test length")
 	{
 	    INFO("Test #4) Test length FAILED");
 		REQUIRE(sa.length() == 5);
-	}/*
+	}
 	SECTION("Test #5) Test valid index member")
 	{
 	    INFO("Test #5) Test valid index member FAILED");
@@ -101,7 +101,7 @@ TEST_CASE("Testing SuperArray class Regular indexes")
 	{
 	    INFO("Test #6) Test valid index member (too low) FAILED");
 		REQUIRE_THROWS_WITH(sa[-2], "Invalid index request, too low");
-	}
+	}/*
 	SECTION("Test #7) Test invalid index members (too high)")
 	{
 	    INFO("Test #7) Test valid index member (too high) FAILED");
