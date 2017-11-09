@@ -3,6 +3,7 @@
 // Copyright (c) 2017 WSU
 //
 
+// Comment
 #ifndef HW6_SUPERARRAY_H
 #define HW6_SUPERARRAY_H
 #include <iostream>
