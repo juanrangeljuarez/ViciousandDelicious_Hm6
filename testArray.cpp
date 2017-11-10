@@ -213,7 +213,7 @@ TEST_CASE("Testing SuperArray class Resize Feature")
 	    INFO("Test #21 Test valid index member (too high) FAILED");
 		REQUIRE_THROWS_WITH(sa[19], "Invalid index request, too high");
 	}
-}/*
+}
 TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
 {
     INFO("Testing SuperArray class Resize Feature Negative Index");
@@ -232,7 +232,7 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
     {
         INFO("Test #22) Test low index FAILED");
         REQUIRE(sa.getLowIndex() == low);
-    }
+    }/*
     SECTION("Test #23) Test high index")
     { 
         INFO("Test #23) Test high index FAILED");
@@ -270,8 +270,8 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
     {
         INFO("Test #28 Test valid index member (too high) FAILED");
         REQUIRE_THROWS_WITH(sa[25], "Invalid index request, too high");
-    }
-}
+    }*/
+}/*
 TEST_CASE("Testing SuperArray Offseting array")
 {
     INFO("Testing SuperArray Offseting array");

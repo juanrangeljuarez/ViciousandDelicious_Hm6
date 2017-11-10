@@ -92,30 +92,32 @@ unsigned int SuperArray::length() const {
     return capacity;
 }
 
-void SuperArray::resize(const int begIndex, const unsigned int capacit)
+void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
     int *temp;
-    temp = new int[capacit];
-    cout << "High index : "<< highIndex<< endl;
+    temp = new int[capacity];
+    //cout << "High index : "<< highIndex<< endl;
     int numIndex;
     if(lowIndex > begIndex)
         numIndex = lowIndex - begIndex;
     else
         numIndex = 0;
-    memcpy(temp+numIndex,arr, sizeof(int)*capacit);
+    memcpy(temp+numIndex,arr, sizeof(int)*capacity);
 
     delete [] arr;
 
-    SuperArray::capacity = capacit;
+    SuperArray::capacity = capacity;
     SuperArray::lowIndex = begIndex;
-    SuperArray::highIndex = capacit-1;
+    SuperArray::highIndex = capacity-1;
     arr = temp;
+    /*
     cout << "High index : "<< highIndex << endl;
 
     for (int i = 0; i < (capacity - begIndex); ++i) {
         cout << arr[i] << " ";
     }
     cout<<endl;
+     */
 
 
 }
