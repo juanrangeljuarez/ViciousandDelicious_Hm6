@@ -228,6 +228,7 @@ TEST_CASE("Testing SuperArray class Resize Feature Negative Index")
     low = -4;
     high = 23;
     sa.resize(low, high);
+    // comment
     SECTION("Test #22) Test low index")
     {
         INFO("Test #22) Test low index FAILED");
