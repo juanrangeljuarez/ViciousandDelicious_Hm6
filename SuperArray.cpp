@@ -102,7 +102,7 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
         numIndex = lowIndex - begIndex;
     else
         numIndex = 0;
-    memcpy(temp+numIndex,arr, sizeof(int)*capacity);
+    memcpy(temp+numIndex, arr, sizeof(int)*capacity);
 
     delete [] arr;
 
@@ -118,6 +118,4 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
     }
     cout<<endl;
      */
-
-
 }
