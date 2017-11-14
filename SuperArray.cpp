@@ -12,16 +12,16 @@
  */
 SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 {
-	/* This is declaring a local variable, if you have data member
-	 * called int* arr, the code on line ## will NOT refer to the data
-	 * member, instead you created a second arr pointer, and this
-	 * second pointer dies and is lost forever when the constructor ends
-	 */
-	arr = new int[capacity];
+    /* This is declaring a local variable, if you have data member
+     * called int* arr, the code on line ## will NOT refer to the data
+     * member, instead you created a second arr pointer, and this
+     * second pointer dies and is lost forever when the constructor ends
+     */
+    arr = new int[capacity];
     SuperArray::capacity = capacity;
-	SuperArray::lowIndex = begIndex;
-	SuperArray::highIndex = begIndex + (capacity-1);
-	// Other info below
+    SuperArray::lowIndex = begIndex;
+    SuperArray::highIndex = begIndex + (capacity-1);
+    // Other info below
 }
 
 /*!
@@ -29,7 +29,7 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
  */
 SuperArray::~SuperArray()
 {
-	delete[] arr;
+    delete[] arr;
 }
 
 
@@ -41,22 +41,22 @@ SuperArray::~SuperArray()
  */
 string arrayToString(const SuperArray& obj)
 {
-	stringstream ss;
+    stringstream ss;
 
-	for (int i = 0; i < obj.capacity; i++)
+    for (int i = 0; i < obj.capacity; i++)
     {
         //cout << obj.arr[i] << " i " << i<<endl;
         ss << obj.arr[i] << " ";
     }
-	string str = ss.str();
-	size_t found;
-	found = str.find_last_not_of(" ");
-	if (found != string::npos)
-		str.erase(found + 1);
-	else
-		str.clear();            // str is all whitespace
+    string str = ss.str();
+    size_t found;
+    found = str.find_last_not_of(" ");
+    if (found != string::npos)
+        str.erase(found + 1);
+    else
+        str.clear();            // str is all whitespace
 
-	return str;
+    return str;
 }
 
 /*!
@@ -67,17 +67,18 @@ string arrayToString(const SuperArray& obj)
 int &SuperArray::operator[](const int index)
 {
 
-	if(index < lowIndex)
-	{
-		throw("Invalid index request, too low");
-	}
-	else if(index > highIndex)
-	{
-		throw("Invalid index request, too high");
-	}
+    if(index < lowIndex)
+    {
+        throw("Invalid index request, too low");
+    }
+    else if(index > highIndex)
+    {
+        throw("Invalid index request, too high");
+    }
+    // index conversion
     int realIndex = index - lowIndex;
 
-	return arr[realIndex];
+    return arr[realIndex];
 }
 
 int SuperArray::getLowIndex() const {
@@ -102,20 +103,27 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
         numIndex = lowIndex - begIndex;
     else
         numIndex = 0;
-    memcpy(temp+numIndex, arr, sizeof(int)*capacity);
+    //memcpy(temp+numIndex, arr, sizeof(int)*capacity);
+    cout << "Array"<<endl;
+    for(int i = numIndex; i < capacity; i++)
+    {
+        //temp[i] = arr[i-numIndex];
+        temp[i] = arr[i-numIndex];
+      //  cout << arr[i];
+    }
 
     delete [] arr;
 
     SuperArray::capacity = capacity;
     SuperArray::lowIndex = begIndex;
-    SuperArray::highIndex = capacity-1;
+    SuperArray::highIndex = (capacity+begIndex)-1;
     arr = temp;
     /*
-    cout << "High index : "<< highIndex << endl;
+    cout << "High index : "<< highIndex << endl;*/
 
-    for (int i = 0; i < (capacity - begIndex); ++i) {
+    for (int i = 0; i < capacity; ++i) {
         cout << arr[i] << " ";
     }
     cout<<endl;
-     */
+
 }
