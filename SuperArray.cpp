@@ -7,8 +7,8 @@
 #include <cstring>
 /*!
  * Constructor
- * @param begIndex User's low index
- * @param capacity Maximum array capacity
+ * @param begIndex: user's low index
+ * @param capacity: maximum array capacity
  */
 SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 {
@@ -21,9 +21,7 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
     SuperArray::capacity = capacity;
     SuperArray::lowIndex = begIndex;
     SuperArray::highIndex = begIndex + (capacity-1);
-    // Other info below
 }
-
 /*!
  * Class Destructor
  */
@@ -31,8 +29,6 @@ SuperArray::~SuperArray()
 {
     delete[] arr;
 }
-
-
 /*!
  * Convert int array to string.
  * Note: You do not need to modify this function
@@ -59,11 +55,10 @@ string arrayToString(const SuperArray& obj)
 
     return str;
 }
-
 /*!
  * Index operator overload
- * @param index User's index notation
- * @return Actual index notation
+ * @param index: user's index notation
+ * @return: actual index notation
  */
 int &SuperArray::operator[](const int index)
 {
@@ -81,19 +76,35 @@ int &SuperArray::operator[](const int index)
 
     return arr[realIndex];
 }
-
-int SuperArray::getLowIndex() const {
+/*!
+ * Get low index of array
+ * @return: low index
+ */
+int SuperArray::getLowIndex() const
+{
     return lowIndex;
 }
-
-int SuperArray::getHighIndex() const {
+/*!
+ * Get high index of array
+ * @return: high index
+ */
+int SuperArray::getHighIndex() const
+{
     return highIndex;
 }
-
-unsigned int SuperArray::length() const {
+/*!
+ * Get capacity of array
+ * @return: capacity
+ */
+unsigned int SuperArray::length() const
+{
     return capacity;
 }
-
+/*!
+ * Resize array to new capacity and beginning index
+ * @param begIndex: begindex of array
+ * @param capacity: capacity of array
+ */
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
     SuperArray  temp(begIndex,capacity);
