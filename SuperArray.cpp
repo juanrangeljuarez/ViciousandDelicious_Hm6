@@ -43,7 +43,7 @@ string arrayToString(const SuperArray& obj)
 {
     stringstream ss;
     cout << "Inside String"<< endl;
-    for (int i = 0; i < 1; i++)
+    for (int i = 0; i < obj.capacity; i++)
     {
         //cout << obj.arr[i] << " i " << i<<endl;
         ss << obj.arr[i] << " ";
