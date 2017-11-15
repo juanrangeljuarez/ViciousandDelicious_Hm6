@@ -42,11 +42,12 @@ SuperArray::~SuperArray()
 string arrayToString(const SuperArray& obj)
 {
     stringstream ss;
-
-    for (int i = 0; i < obj.capacity; i++)
+    cout << "Inside String"<< endl;
+    for (int i = 0; i < 1; i++)
     {
         //cout << obj.arr[i] << " i " << i<<endl;
         ss << obj.arr[i] << " ";
+        cout << obj.arr[i]<<" ";
     }
     string str = ss.str();
     size_t found;
@@ -95,21 +96,18 @@ unsigned int SuperArray::length() const {
 
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
-    int *temp;
-    temp = new int[capacity];
-    //cout << "High index : "<< highIndex<< endl;
+    SuperArray  temp(begIndex,capacity);
     int numIndex;
     if(lowIndex > begIndex)
-        numIndex = lowIndex - begIndex;
+        numIndex = abs(lowIndex - begIndex);
     else
         numIndex = 0;
-    //memcpy(temp+numIndex, arr, sizeof(int)*capacity);
-    cout << "Array"<<endl;
-    for(int i = numIndex; i < capacity; i++)
+    cout << "Array Maybe " << capacity<<endl;
+
+    for(int i = (numIndex+begIndex); i < (capacity+begIndex); i++)
     {
-        //temp[i] = arr[i-numIndex];
-        temp[i] = arr[i-numIndex];
-      //  cout << arr[i];
+        temp[i] = arr[i-(numIndex+begIndex)];
+
     }
 
     delete [] arr;
@@ -117,13 +115,12 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
     SuperArray::capacity = capacity;
     SuperArray::lowIndex = begIndex;
     SuperArray::highIndex = (capacity+begIndex)-1;
-    arr = temp;
-    /*
-    cout << "High index : "<< highIndex << endl;*/
+    arr = temp.arr;
 
     for (int i = 0; i < capacity; ++i) {
         cout << arr[i] << " ";
     }
     cout<<endl;
-
+    //Change where temp.arr points to
+    temp.arr = NULL;
 }
