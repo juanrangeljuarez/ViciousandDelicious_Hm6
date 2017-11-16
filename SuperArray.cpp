@@ -113,7 +113,6 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
         numIndex = abs(lowIndex - begIndex);
     else
         numIndex = 0;
-    cout << "Array Maybe " << capacity<<endl;
 
     for(int i = (numIndex+begIndex); i < (capacity+begIndex); i++)
     {
@@ -128,10 +127,6 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
     SuperArray::highIndex = (capacity+begIndex)-1;
     arr = temp.arr;
 
-    for (int i = 0; i < capacity; ++i) {
-        cout << arr[i] << " ";
-    }
-    cout<<endl;
     //Change where temp.arr points to
     temp.arr = NULL;
 }
