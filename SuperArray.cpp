@@ -38,12 +38,10 @@ SuperArray::~SuperArray()
 string arrayToString(const SuperArray& obj)
 {
     stringstream ss;
-    cout << "Inside String"<< endl;
     for (int i = 0; i < obj.capacity; i++)
     {
         //cout << obj.arr[i] << " i " << i<<endl;
         ss << obj.arr[i] << " ";
-        cout << obj.arr[i]<<" ";
     }
     string str = ss.str();
     size_t found;
